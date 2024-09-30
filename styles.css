@@ -1,0 +1,536 @@
+@import url('https://fonts.googleapis.com/css2?family=Crete+Round&display=swap');
+
+body {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url('img/background.png');
+    background-size: cover; /* Para cobrir toda a área sem distorção */
+    background-position: center; /* Para centralizar a imagem */
+    background-attachment: fixed; /* Para fixar a imagem no plano de fundo */
+    background-repeat: no-repeat; /* Para evitar a repetição da imagem */
+    margin: 0;
+    margin-bottom: 150px;
+    height: 100vh; /* Para garantir que o body ocupe a altura total da viewport */
+    width: 100vw; /* Para garantir que o body ocupe a largura total da viewport */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    overflow-x: hidden;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    z-index: 1000; /* Para garantir que a barra de navegação esteja acima do conteúdo */
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #333;
+}
+
+.navbar-nav .nav-item .dropdown-menu .dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+.form-container {
+    visibility: hidden;
+    max-width: 800px;
+    width: 100%; /* Para garantir que não exceda a largura do viewport */
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 150px; /* Espaço ajustado abaixo da barra de navegação */
+}
+
+.title {
+    margin-bottom: 20px;
+}
+
+/* Estilo para a nova div de login */
+.login-container {
+    visibility: hidden;
+    max-width: 400px;
+    width: 100%;
+    background-color: white; /* Cor de fundo igual à da form-container */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 150px; /* Distância ajustada abaixo da barra de navegação */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza horizontalmente */
+    z-index: 1000;
+}
+
+.login-container {
+    width: 100%; /* O botão ocupa 100% do espaço disponível */
+}
+
+.error-message {
+    visibility: hidden;
+    display: none;
+    border-radius: 50px;
+    display: block;
+    width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+    position: fixed;
+    bottom: 100px;
+    left: 0;
+    right: 0;
+    background-color: rgb(200, 0, 0);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    border-top: 1px solid #f5c6cb;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.bordered-section {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    position: absolute;
+    top: -10px; /* Ajuste para alinhar verticalmente com a borda */
+    left: 20px; /* Ajuste para posicionar horizontalmente */
+    background-color: white; /* Fundo branco para sobrepor a borda */
+    font-weight: light;
+    font-family: 'Crete Round', serif;
+    font-size: 18px;
+    padding: 0 10px; /* Espaçamento ao redor do texto */
+    z-index: 1; /* Garante que o título esteja acima da borda */
+}
+
+.input-wrapper {
+    border: 1px solid #eeeeee; /* Borda da div */
+    padding: 20px;
+    border-radius: 8px; /* Borda arredondada */
+    margin-top: 10px; /* Para deixar espaço para o título */
+    position: relative;
+}
+
+.input-wrapper:hover {
+    border: 1px solid #cccccc; /* Borda da div */
+}
+
+.header-title {
+    left: -0.8em;
+    margin-bottom: 50px;
+    margin-right: -60px;
+    padding-left: 1em;
+    line-height: 2.55em;
+    position: relative;
+    border-radius: 0 0.156em 0.156em 0;
+    font-family: 'Crete Round', serif;
+    font-size: 25px;
+    color: white;
+    background: #ed9002;
+    box-shadow: -1px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.login-container .header-title {
+    margin-bottom: 20px;
+}
+
+.header-title::before,
+.header-title::after {
+    position: absolute;
+    content: '';
+    display: block;
+}
+
+.header-title::before {
+    padding: 0 0 2em;
+    border-radius: 0.313em 0 0 0.313em;
+    width: 0.769em;
+    height: 121%;
+    top: 0;
+    left: -0.75em;
+    background: #ed9002;
+}
+
+.header-title::after {
+    width: 0.5em;
+    height: 0.4em;
+    border-radius: 0.313em 0 0 0.313em;
+    bottom: -0.4em;
+    left: -0.5em;
+    background: rgba(0, 0, 0, 0.35);
+    box-shadow: inset -1px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.btn  {
+    font-family: 'Crete Round', serif;
+    font-size: 18px;
+    width: 75%;
+    color: white;
+    background-color: #ed9002;
+    margin-bottom: 50px;
+}
+
+.btn:hover {
+    color: white;
+    background-color: #ed900295;
+}
+
+.last-btn {
+    margin-bottom: 0px;
+}
+
+.inverter-btn {
+    margin-bottom: 10px;
+    background-color: #ed9002aa;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #ed9002;
+    border-color: #ed9002;
+}
+
+.cartao-cnpj {
+    display: none;
+    visibility: hidden;
+}
+
+.contrato-social {
+    display: none;
+    visibility: hidden;
+}
+
+.fotos-inversor-usina {
+    display: none;
+    visibility: hidden;
+}
+
+.quantidade-potencia-modulos {
+    display: none;
+    visibility: hidden;
+}
+
+.escritura-imovel {
+    display: none;
+    visibility: hidden;
+}
+
+.car {
+    display: none;
+    visibility: hidden;
+}
+
+.autorizacao-uso-telhado {
+    display: none;
+    visibility: hidden;
+}
+
+.fotos-todos-padroes {
+    display: none;
+    visibility: hidden;
+}
+
+.procuracao-troca-titularidade {
+    display: none;
+    visibility: hidden;
+}
+
+#inverter-2 {
+    display: none;
+    visibility: hidden;
+}
+
+#inverter-3 {
+    display: none;
+    visibility: hidden;
+}
+
+#inverter-4 {
+    display: none;
+    visibility: hidden;
+}
+
+#inverter-2-orcamento {
+    display: none;
+    visibility: hidden;
+}
+
+#inverter-3-orcamento {
+    display: none;
+    visibility: hidden;
+}
+
+#inverter-4-orcamento {
+    display: none;
+    visibility: hidden;
+}
+
+.disjuntor-solicitado {
+    display: none;
+    visibility: hidden;
+}
+
+.disjuntor-geral {
+    display: none;
+    visibility: hidden;
+}
+
+.botao-procuracao {
+    display: none;
+    visibility: hidden;
+}
+
+.botao-contrato {
+    display: none;
+    visibility: hidden;
+}
+
+.botao-orcamento {
+    display: none;
+    visibility: hidden;
+}
+
+.botao-procuracao-troca {
+    display: none;
+    visibility: hidden;
+}
+
+.botao-checklist {
+    display: none;
+    visibility: hidden;
+}
+
+.botao-todos-documentos {
+    display: none;
+    visibility: hidden;
+}
+
+.proxy-container {
+    display: none;
+    visibility: hidden;
+}
+
+.contract-container {
+    display: none;
+    visibility: hidden;
+}
+
+.budget-container {
+    display: none;
+    visibility: hidden;
+}
+
+.checklist-container {
+    display: none;
+    visibility: hidden;
+}
+
+.required-message {
+    color: white;
+    /* margin-left: auto;
+    margin-right: auto; */
+    margin-top: 5px;
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+    border-radius: 50px;
+    background-color: rgb(200, 0, 0);
+    display: none;
+    visibility: hidden;
+}
+
+.required-message-checkbox {
+    color: white;
+    /* margin-left: auto;
+    margin-right: auto; */
+    margin-top: 5px;
+    font-size: 12px;
+    text-align: center;
+    width: 25%;
+    border-radius: 50px;
+    background-color: rgb(200, 0, 0);
+    display: none;
+    visibility: hidden;
+}
+
+.nome-required {
+    color: white;
+    /* margin-left: auto;
+    margin-right: auto; */
+    margin-top: 5px;
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+    border-radius: 50px;
+    background-color: rgb(200, 0, 0);
+    display: none;
+    visibility: hidden;
+}
+
+.cpf-required {
+    color: white;
+    /* margin-left: auto;
+    margin-right: auto; */
+    margin-top: 5px;
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+    border-radius: 50px;
+    background-color: rgb(200, 0, 0);
+    display: none;
+    visibility: hidden;
+}
+
+.celular-required {
+    color: white;
+    /* margin-left: auto;
+    margin-right: auto; */
+    margin-top: 5px;
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+    border-radius: 50px;
+    background-color: rgb(200, 0, 0);
+    display: none;
+    visibility: hidden;
+}
+
+.email-required {
+    color: white;
+    /* margin-left: auto;
+    margin-right: auto; */
+    margin-top: 5px;
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+    border-radius: 50px;
+    background-color: rgb(200, 0, 0);
+    display: none;
+    visibility: hidden;
+}
+
+.n-instalacao-required {
+    color: white;
+    /* margin-left: auto;
+    margin-right: auto; */
+    margin-top: 5px;
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+    border-radius: 50px;
+    background-color: rgb(200, 0, 0);
+    display: none;
+    visibility: hidden;
+}
+
+.cep-required {
+    color: white;
+    /* margin-left: auto;
+    margin-right: auto; */
+    margin-top: 5px;
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+    border-radius: 50px;
+    background-color: rgb(200, 0, 0);
+    display: none;
+    visibility: hidden;
+}
+
+.address-required {
+    color: white;
+    /* margin-left: auto;
+    margin-right: auto; */
+    margin-top: 5px;
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+    border-radius: 50px;
+    background-color: rgb(200, 0, 0);
+    display: none;
+    visibility: hidden;
+}
+
+.number-required {
+    color: white;
+    /* margin-left: auto;
+    margin-right: auto; */
+    margin-top: 5px;
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+    border-radius: 50px;
+    background-color: rgb(200, 0, 0);
+    display: none;
+    visibility: hidden;
+}
+
+.neighborhood-required {
+    color: white;
+    /* margin-left: auto;
+    margin-right: auto; */
+    margin-top: 5px;
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+    border-radius: 50px;
+    background-color: rgb(200, 0, 0);
+    display: none;
+    visibility: hidden;
+}
+
+.city-required {
+    color: white;
+    /* margin-left: auto;
+    margin-right: auto; */
+    margin-top: 5px;
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+    border-radius: 50px;
+    background-color: rgb(200, 0, 0);
+    display: none;
+    visibility: hidden;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSI2Ij48cGF0aCBkPSJNNSA2TDAtMEw2LTUgTDExIDBMNSA2WiIgZmlsbD0iI0FBQUFBQSIgLz48L3N2Zz4=') no-repeat right center;
+    padding-right: 15px; /* Ajusta a posição da seta */
+}
+
+.other-container {
+    visibility: hidden;
+    display: none;
+}
+
+.change-proxy-container {
+    visibility: hidden;
+    display: none;
+}
+
+
+
+@media (max-width: 767.98px) {
+    .login-container {
+        margin-right: 30px;
+        /* margin-left: 30px; */
+        width: calc(100% - 60px);
+    }
+    .form-container {
+        margin-right: 30px;
+        margin-left: 30px;
+        width: calc(100% - 60px);
+    }
+    .first-container {
+        margin-top: 20px;
+    }
+}
